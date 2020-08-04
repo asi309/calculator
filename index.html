@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>
+            Basic Calculator
+        </title>
+        <link rel="stylesheet" href="./styles.css">
+    </head>
+    <body>
+        <div id="app">
+            <div id="calculator-box">
+                <input type="text" id="num">
+                <div class="numbers">
+                    <div class="key" data-key="103">
+                        <kbd>7</kbd>
+                        <button class="btn btn-input" onclick="addNum(7)"></button>
+                    </div>
+                    <div class="key" data-key="104">
+                        <kbd>8</kbd>
+                        <button class="btn btn-input" onclick="addNum(8)"></button>
+                    </div>
+                    <div class="key" data-key="109">
+                        <kbd>9</kbd>
+                        <button class="btn btn-input" onclick="addNum(9)"></button>
+                    </div>
+                    <div class="key" data-key="100">
+                        <kbd>4</kbd>
+                        <button class="btn btn-input" onclick="addNum(4)"></button>
+                    </div>
+                    <div class="key" data-key="101">
+                        <kbd>5</kbd>
+                        <button class="btn btn-input" onclick="addNum(5)"></button>
+                    </div>
+                    <div class="key" data-key="102">
+                        <kbd>6</kbd>
+                        <button class="btn btn-input" onclick="addNum(6)"></button>
+                    </div>
+                    <div class="key" data-key="97">
+                        <kbd>1</kbd>
+                        <button class="btn btn-input" onclick="addNum(1)"></button>
+                    </div>
+                    <div class="key" data-key="98">
+                        <kbd>2</kbd>
+                        <button class="btn btn-input" onclick="addNum(2)"></button>
+                    </div>
+                    <div class="key" data-key="99">
+                        <kbd>3</kbd>
+                        <button class="btn btn-input" onclick="addNum(3)"></button>
+                    </div>
+                    <div class="key" data-key="96">
+                        <kbd>0</kbd>
+                        <button class="btn btn-input" onclick="addNum(0)"></button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <script src="./script.js"></script>
+    </body>
+</html>
