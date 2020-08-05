@@ -30,3 +30,23 @@ const operate = () => {
         operationQ = [];
     }
 };
+
+// const handleOperation = (e) => {
+    
+// }
+
+// const keys = document.querySelectorAll('.key');
+// window.addEventListener('keydown', handleOperation);
+
+const addNum = (num) => {
+    console.log(num);
+    const inputBox = document.querySelector('input');
+    const btn = Array.from(document.querySelectorAll('.btn-operation'));
+    if (typeof num === 'number') {
+        inputBox.value = num;
+    } else {
+        if (num === 'enter') {
+            
+        }
+    }
+}

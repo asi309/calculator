@@ -11,47 +11,75 @@
     <body>
         <div id="app">
             <div id="calculator-box">
-                <input type="text" id="num">
-                <div class="numbers">
-                    <div class="key" data-key="103">
-                        <kbd>7</kbd>
-                        <button class="btn btn-input" onclick="addNum(7)"></button>
+                <input type="text" id="num" disabled>
+                <div id="input-section">
+                    <div id="numbers">
+                        <div class="key" data-key="103">
+                            <kbd></kbd>
+                            <button class="btn btn-input" onclick="addNum(7)">7</button>
+                        </div>
+                        <div class="key" data-key="104">
+                            <kbd></kbd>
+                            <button class="btn btn-input" onclick="addNum(8)">8</button>
+                        </div>
+                        <div class="key" data-key="109">
+                            <kbd></kbd>
+                            <button class="btn btn-input" onclick="addNum(9)">9</button>
+                        </div>
+                        <div class="key" data-key="100">
+                            <kbd></kbd>
+                            <button class="btn btn-input" onclick="addNum(4)">4</button>
+                        </div>
+                        <div class="key" data-key="101">
+                            <kbd></kbd>
+                            <button class="btn btn-input" onclick="addNum(5)">5</button>
+                        </div>
+                        <div class="key" data-key="102">
+                            <kbd></kbd>
+                            <button class="btn btn-input" onclick="addNum(6)">6</button>
+                        </div>
+                        <div class="key" data-key="97">
+                            <kbd></kbd>
+                            <button class="btn btn-input" onclick="addNum(1)">1</button>
+                        </div>
+                        <div class="key" data-key="98">
+                            <kbd></kbd>
+                            <button class="btn btn-input" onclick="addNum(2)">2</button>
+                        </div>
+                        <div class="key" data-key="99">
+                            <kbd></kbd>
+                            <button class="btn btn-input" onclick="addNum(3)">3</button>
+                        </div>
+                        <div class="key" data-key="96">
+                            <kbd></kbd>
+                            <button class="btn btn-input" onclick="addNum(0)">0</button>
+                        </div>
+                        <div class="key" data-key="110">
+                            <kbd></kbd>
+                            <button class="btn btn-input" onclick="addNum('.')">.&nbsp;</button>
+                        </div>
+                        <div class="key" data-key="13">
+                            <kbd></kbd>
+                            <button class="btn btn-operation" onclick="addNum('enter')">=</button>
+                        </div>
                     </div>
-                    <div class="key" data-key="104">
-                        <kbd>8</kbd>
-                        <button class="btn btn-input" onclick="addNum(8)"></button>
-                    </div>
-                    <div class="key" data-key="109">
-                        <kbd>9</kbd>
-                        <button class="btn btn-input" onclick="addNum(9)"></button>
-                    </div>
-                    <div class="key" data-key="100">
-                        <kbd>4</kbd>
-                        <button class="btn btn-input" onclick="addNum(4)"></button>
-                    </div>
-                    <div class="key" data-key="101">
-                        <kbd>5</kbd>
-                        <button class="btn btn-input" onclick="addNum(5)"></button>
-                    </div>
-                    <div class="key" data-key="102">
-                        <kbd>6</kbd>
-                        <button class="btn btn-input" onclick="addNum(6)"></button>
-                    </div>
-                    <div class="key" data-key="97">
-                        <kbd>1</kbd>
-                        <button class="btn btn-input" onclick="addNum(1)"></button>
-                    </div>
-                    <div class="key" data-key="98">
-                        <kbd>2</kbd>
-                        <button class="btn btn-input" onclick="addNum(2)"></button>
-                    </div>
-                    <div class="key" data-key="99">
-                        <kbd>3</kbd>
-                        <button class="btn btn-input" onclick="addNum(3)"></button>
-                    </div>
-                    <div class="key" data-key="96">
-                        <kbd>0</kbd>
-                        <button class="btn btn-input" onclick="addNum(0)"></button>
+                    <div id="operations">
+                        <div class="key" data-key="111">
+                            <kbd></kbd>
+                            <button class="btn btn-operation" onclick="addNum('/')">/</button>
+                        </div>
+                        <div class="key" data-key="106">
+                            <kbd></kbd>
+                            <button class="btn btn-operation" onclick="addNum('*')">*</button>
+                        </div>
+                        <div class="key" data-key="107">
+                            <kbd></kbd>
+                            <button class="btn btn-operation" onclick="addNum('+')">+</button>
+                        </div>
+                        <div class="key" data-key="109">
+                            <kbd></kbd>
+                            <button class="btn btn-operation" onclick="addNum('-')">-</button>
+                        </div>
                     </div>
                 </div>
             </div>
