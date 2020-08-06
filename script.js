@@ -1,34 +1,25 @@
-const add = (a, b) => parseFloat(a) + parseFloat(b);
+const add = (a, b) => a + b;
 
-const subtract = (a, b) => parseFloat(a) - parseFloat(b);
+const subtract = (a, b) => a - b;
 
-const multiply = (a, b) => parseFloat(a) * parseFloat(b);
+const multiply = (a, b) => a * b;
 
-const divide = (a,b) => parseFloat(b) === 0 ? 'Cannot divide by 0' : parseFloat(a) / parseFloat(b);
+const divide = (a,b) => b === 0 ? 'error0' : a / b;
 
 let operationQ = [];
 
 const operate = () => {
-    if (operationQ.length === 0) {
-        console.log('Cannot perform operation');
-        return;
+    const l = operationQ.length;
+    if (operationQ[l-2] === '+') {
+        return add(operationQ[l-3], operationQ[l-1]);
+    } else if (operationQ[1] === '-') {
+        return subtract(operationQ[l-3], operationQ[l-1]);
+    } else if (operationQ[1] === '*') {
+        return multiply(operationQ[l-3], operationQ[l-1]);
+    } else if (operationQ[1] === '/') {
+        return divide(operationQ[l-3], operationQ[l-1]);
     }
-    if (typeof operationQ[operationQ.length - 1] !== 'number') {
-        console.log('Malformed expression');
-        return;
-    }
-    if (operationQ.length === 3) {
-        if (operationQ[1] === '+') {
-            return add(operationQ[0], operationQ[2]);
-        } else if (operationQ[1] === '-') {
-            return subtract(operationQ[0], operationQ[2]);
-        } else if (operationQ[1] === '*') {
-            return multiply(operationQ[0], operationQ[2]);
-        } else if (operationQ[1] === '/') {
-            return divide(operationQ[0], operationQ[2]);
-        }
-        operationQ = [];
-    }
+    operationQ = [];
 };
 
 // const handleOperation = (e) => {
@@ -43,10 +34,40 @@ const addNum = (num) => {
     const inputBox = document.querySelector('input');
     const btn = Array.from(document.querySelectorAll('.btn-operation'));
     if (typeof num === 'number') {
-        inputBox.value = num;
+        inputBox.value += num;
     } else {
-        if (num === 'enter') {
-            
+        if (num === '.') {
+            inputBox.value += num;
+        } else if (typeof num !== 'number') {
+            if (num !== 'enter') {
+                operationQ.push(parseFloat(inputBox.value));
+                inputBox.value = '';
+                operationQ.push(num);
+                console.log(operationQ);            
+            } else {
+                operationQ.push(parseFloat(inputBox.value));
+                inputBox.value = '';
+                console.log(operationQ);
+                const result = operate();
+                if (typeof result === 'number') {
+                    inputBox.value = result;
+                    operationQ = [];
+                    // operationQ.push(result);
+                } else if (result === 'error0') {
+                    inputBox.value = 'Cannot divide by 0';
+                    operationQ = [];
+                }
+            }
         }
     }
+}
+
+const clearInput = () => {
+    const inputBox = document.querySelector('input');
+    inputBox.value = '';
+}
+
+const clearOne = () => {
+    const inputBox = document.querySelector('input');
+    inputBox.value = inputBox.value.slice(0, inputBox.value.length - 1);
 }
