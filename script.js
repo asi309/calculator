@@ -10,14 +10,14 @@ let operationQ = [];
 
 const operate = () => {
     const l = operationQ.length;
-    if (operationQ[l-2] === '+') {
-        return add(operationQ[l-3], operationQ[l-1]);
+    if (operationQ[l-3] === '+') {
+        return add(operationQ[l-4], operationQ[l-2]);
     } else if (operationQ[1] === '-') {
-        return subtract(operationQ[l-3], operationQ[l-1]);
+        return subtract(operationQ[l-4], operationQ[l-2]);
     } else if (operationQ[1] === '*') {
-        return multiply(operationQ[l-3], operationQ[l-1]);
+        return multiply(operationQ[l-4], operationQ[l-2]);
     } else if (operationQ[1] === '/') {
-        return divide(operationQ[l-3], operationQ[l-1]);
+        return divide(operationQ[l-4], operationQ[l-2]);
     }
     operationQ = [];
 };
@@ -39,23 +39,19 @@ const addNum = (num) => {
         if (num === '.') {
             inputBox.value += num;
         } else if (typeof num !== 'number') {
-            if (num !== 'enter') {
-                operationQ.push(parseFloat(inputBox.value));
-                inputBox.value = '';
-                operationQ.push(num);
-                console.log(operationQ);            
-            } else {
-                operationQ.push(parseFloat(inputBox.value));
-                inputBox.value = '';
-                console.log(operationQ);
+            operationQ.push(parseFloat(inputBox.value));
+            inputBox.value = '';
+            operationQ.push(num);
+            console.log(operationQ);
+            if (operationQ.length%4 === 0) {
                 const result = operate();
-                if (typeof result === 'number') {
-                    inputBox.value = result;
-                    operationQ = [];
-                    // operationQ.push(result);
-                } else if (result === 'error0') {
-                    inputBox.value = 'Cannot divide by 0';
-                    operationQ = [];
+                const operand = operationQ[operationQ.length-1];
+                operationQ = [];
+                if (operand === 'enter') {
+                    result !== 'error0' ? inputBox.value = result : location.reload();
+                } else {
+                    operationQ.push(result);
+                    operationQ.push(operand);
                 }
             }
         }
@@ -70,4 +66,10 @@ const clearInput = () => {
 const clearOne = () => {
     const inputBox = document.querySelector('input');
     inputBox.value = inputBox.value.slice(0, inputBox.value.length - 1);
+}
+
+const clearOperation = () => {
+    operationQ = [];
+    const inputBox = document.querySelector('input');
+    inputBox.value = '';
 }
